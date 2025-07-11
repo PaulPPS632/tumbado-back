@@ -1,0 +1,29 @@
+# Node
+node_modules/
+dist/
+.env
+*.log
+
+# TypeScript
+*.tsbuildinfo
+
+# Wrangler
+.wrangler/
+wrangler.toml.__*
+wrangler.*.json
+
+# Drizzle
+.drizzle-out/
+drizzle/migrations/*.ts # migraciones generadas en TS si las tienes
+
+# Vercel/other tools
+.vercel/
+.netlify/
+
+# Mac/IDE
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+wrangler.toml
