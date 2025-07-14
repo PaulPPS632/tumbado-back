@@ -115,3 +115,34 @@ export const tipos = sqliteTable('tipos', {
   activo: integer('activo').default(1),
   created_at: integer('created_at', { mode: 'timestamp_ms' }).default(sql`(STRFTIME('%s', 'now')*1000)`)
 })
+
+export const usuarios = sqliteTable('usuarios', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  nombre: text('nombre').notNull(),
+  numero_telefono: text('numero_telefono').notNull(),
+  distrito: text('distrito').notNull(),
+  email: text('email').notNull(),
+  password: text('password').notNull(),
+  created_at: integer('created_at', { mode: 'timestamp_ms' }).default(sql`(STRFTIME('%s', 'now')*1000)`)
+})
+
+//
+// Tabla de Tallas (con tipo: calzado o vestimenta)
+//
+export const tallas = sqliteTable('tallas', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  valor: text('valor').notNull(),          // Ejemplo: "S", "M", "L", "38", "39", etc.
+  tipo: text('tipo').notNull(),           // "calzado" o "vestimenta"
+  activo: integer('activo').default(1),
+  created_at: integer('created_at', { mode: 'timestamp_ms' }).default(sql`(STRFTIME('%s', 'now')*1000)`)
+})
+
+//
+// Tabla intermedia entre productos y tallas
+//
+export const producto_tallas = sqliteTable('producto_tallas', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  producto_id: integer('producto_id').notNull(),  // FK lógica a productos
+  talla_id: integer('talla_id').notNull(),        // FK lógica a tallas
+  created_at: integer('created_at', { mode: 'timestamp_ms' }).default(sql`(STRFTIME('%s', 'now')*1000)`)
+})

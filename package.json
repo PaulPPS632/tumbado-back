@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "wrangler dev src/index.ts",
+    "dev:migrate": "wrangler d1 migrations apply DB --local",
+    "dev:seed": "wrangler d1 execute DB --local --file \"./seeds/dev.sql\"",
     "start": "wrangler dev",
     "build": "wrangler build",
     "deploy": "wrangler deploy",

@@ -8,6 +8,7 @@ import marcasRoutes from './routes/MarcaRoutes'
 import categoriasRoutes from './routes/CategoriaRoutes'
 import sexosRoutes from './routes/SexoRoutes'
 import tiposRoutes from './routes/TipoRoutes'
+import tallasRoutes from './routes/TallasRoutes'
 
 export type Env = {
   Bindings: {
@@ -25,5 +26,6 @@ export const createApp = () => {
   app.route('/categorias', categoriasRoutes)
   app.route('/sexos', sexosRoutes)
   app.route('/tipos', tiposRoutes)
+  app.route('/tallas', tallasRoutes)
   return app
 }

@@ -22,3 +22,4 @@ export const createCategoria = async (c: Context) => {
   return c.json({ ok: true })
 }
 
+
